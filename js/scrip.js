@@ -33,7 +33,7 @@ function init(){
         var table = document.getElementsByTagName('table')[i];
         table.style.display = 'none';
     }
-    document.getElementById('calendar').style.display = 'none';
+    document.getElementById('calCont').style.display = 'none';
     document.getElementById('selector').style.display = 'none';
     const date0 = new Date();
     var day0 = date0.getDay();

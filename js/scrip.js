@@ -19,7 +19,7 @@ function myFunction() {
 }
 function showhide(arg){
     var element = document.getElementById(arg);
-    if(arg === "calCont"){
+    if(arg === "calCont" && element.style.display==='none'){
         alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
     }
     if (element.style.display === 'none'){

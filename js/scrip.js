@@ -19,6 +19,7 @@ function myFunction() {
 }
 function showhide(arg){
     var element = document.getElementById(arg);
+    console.log(element);
     if (element.style.display === 'none'){
         element.style.display = 'block';
         element.setAttribute('style', 'text-align: center;justify-content: space-evenly;display: flex;');

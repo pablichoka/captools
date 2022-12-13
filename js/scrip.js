@@ -47,6 +47,13 @@ function init(){
     fillTheList();
 }
 
+function loadCal(){
+    var mailAux = document.getElementById('mail').value;
+    var mail = mailAux.replace("@", "%40");
+    const calBox = document.getElementById('calBox');
+    calBox.innerHTML ='<iframe id="calendar" src="https://calendar.google.com/calendar/embed?src='+mail+'&ctz=Europe%2FMadrid"></iframe>';
+}
+
 function comidita(){
     const arr = ['italiano', 'chino', 'japones', 'tailandes', 'griega', 'mexicano',
         'cubano', 'hamburguesa', 'mercadona', 'turco', 'poke'];

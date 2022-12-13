@@ -60,11 +60,18 @@
             <td><a href="https://capgemini.sumtotal.host/rcore/c/dash/learningfocus/iniitial?isDeepLink=1"><img class="icon" src="./media/mylearning.png"></a></td>
         </tr>
     </table>
-    <h4>Calendar
+    <h4>Google Calendar
     <input class="button" type="button" value="Show/Hide" onclick="showhide('calendar')">
     </h4>
-    <div align="center">
-    <iframe id="calendar" src="https://calendar.google.com/calendar/embed?src=mdalba2097%40gmail.com&ctz=Europe%2FMadrid"></iframe>
+    <div id="calCont" align="center">
+        <span id="calSel">
+            Introduce aqui tu correo de Google: 
+            <input id="mail" type="email">
+            <input class="button" type="button" value="Send" onclick="loadCal()">
+        </span>
+        <span id="calBox">
+           
+        </span>
     </div>
     <h5>Alpac@s selector
         <input class="button" type="button" value="Show/Hide" onclick="showhide('selector')">

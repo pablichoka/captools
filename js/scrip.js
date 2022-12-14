@@ -2,7 +2,47 @@ var users = ['Javier', 'Antonio', 'Pablo', 'Alba', 'Cristina','Lidia', 'Jose Lui
 'Marta', 'Asun', 'Aida', 'Rocio', 'Miguel', 'Miguel Angel', 'Maria', 'Enzo', 'Nacho', 'Raquel', 'Yeray'];
 var nonValid = [];
 
-function myFunction() {
+//Generic functions
+
+function init(){
+    var i;
+    for(i=0;i<document.getElementsByTagName('table').length;i++){
+        var table = document.getElementsByTagName('table')[i];
+        table.style.display = 'none';
+    }
+    document.getElementById('calCont').style.display = 'none';
+    document.getElementById('decider').style.display = 'none';
+    document.getElementById('selector').style.display = 'none';
+    const date0 = new Date();
+    var day0 = date0.getDay();
+    var day1 = date0.getDate();
+    if(day0 === 5){
+        alert('Today is friday, remember to impute hours!');
+    }
+    if(day1 >= 27){
+        alert('Remember to do the GTE of this month!');
+    }
+    fillTheList();
+    fillTheDecider();
+}
+
+function showhide(arg){
+    var element = document.getElementById(arg);
+    if(arg === "calCont" && element.style.display==='none'){
+        alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
+    }
+    if (element.style.display === 'none'){
+        element.style.display = 'block';
+        element.setAttribute('style', 'text-align: center;justify-content: space-evenly;display: flex;');
+    }
+    else{
+        element.style.display = 'none';
+    }      
+}
+
+//Functions for the surprise
+
+function surprise() {
     alert('Latino heat, right?');
     const img1 = document.createElement('img');
     img1.src = './media/bipbipbop1.png';
@@ -17,38 +57,39 @@ function myFunction() {
     img4.src = './media/bipbipbop4.png';
     document.querySelector('.surprise').appendChild(img4);
 }
-function showhide(arg){
-    var element = document.getElementById(arg);
-    if(arg === "calCont" && element.style.display==='none'){
-        alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
+
+//Functions for the decider
+
+var numChoices;
+
+function coin(){
+    var options = new Array(numChoices);
+    for(var i = 0; i<numChoices;i++){
+        options[i] = document.getElementById('textField'+i).value;
     }
-    if (element.style.display === 'none'){
-        element.style.display = 'block';
-        element.setAttribute('style', 'text-align: center;justify-content: space-evenly;display: flex;');
-    }
-    else{
-        element.style.display = 'none';
-    }      
+    var number = Math.round(Math.random()*options.length-1);
+    document.getElementById('decider').innerHTML = 'The decider...has decided...to decide...'+options[number]+'...no regrets here!';
 }
-function init(){
-    var i;
-    for(i=0;i<document.getElementsByTagName('table').length;i++){
-        var table = document.getElementsByTagName('table')[i];
-        table.style.display = 'none';
+
+function fillTheDecider(){
+    var list = document.getElementById('numChoices');
+    for(var i = 0; i<=10;i++){
+        list.innerHTML += '<option value="'+i+'">'+i+'</option>';
     }
-    document.getElementById('calCont').style.display = 'none';
-    document.getElementById('selector').style.display = 'none';
-    const date0 = new Date();
-    var day0 = date0.getDay();
-    var day1 = date0.getDate();
-    if(day0 === 5){
-        alert('Today is friday, remember to impute hours!');
-    }
-    if(day1 >= 27){
-        alert('Remember to do the GTE of this month!');
-    }
-    fillTheList();
 }
+
+function showTextFields(){
+    var textFields = document.getElementById('optFields');
+    textFields.innerHTML = "";
+    var options = document.getElementById('numChoices');
+    numChoices = options.value;
+    for(var i = 0; i<numChoices;i++){
+        textFields.innerHTML += 'Option number '+(i+1)+': <input type="text" class="textBox" id="textField'+i+'">';    
+    }
+    textFields.innerHTML += '<input class="button" id="decideBut" type="button" value="Decide!" onclick="coin()">';
+}
+
+//Function to show the calendar
 
 function loadCal(){
     var mailAux = document.getElementById('mail').value;
@@ -57,13 +98,8 @@ function loadCal(){
     calBox.innerHTML ='<iframe id="calendar" src="https://calendar.google.com/calendar/embed?src='+mail+'&ctz=Europe%2FMadrid"></iframe>';
 }
 
-function comidita(){
-    const arr = ['italiano', 'chino', 'japones', 'tailandes', 'griega', 'mexicano',
-        'cubano', 'hamburguesa', 'mercadona', 'turco', 'poke'];
-    var rand = Math.round(Math.random()*(arr.length-1));
-    var food = arr[rand];
-    alert('Tu comidita de hoy es: ' + food + '.');
-}
+
+//Functions for Alpac@s selector
 
 function randomPick(){
     if(users.length===0){

@@ -89,10 +89,20 @@
             </ul>
         </span>
     </div>
-    <h6>What do you want to eat?<input class="button" type="button" value="Random food! :)" onclick="comidita()"></h6>
+    <h6>
+        The decider
+        <input class="button" type="button" value="Show/Hide" onclick="showhide('decider')">
+    </h6>
+    <div id="decider">
+        <span id="optSel">
+            Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>
+        </span>
+        <span id="optFields">
 
+        </span>
+    </div>
     <div class="surprise"></div>
-    <button class="button" id="surp" onclick="myFunction()">Click me for a surprise :)</button>
+    <button class="button" id="surp" onclick="surprise()">Click me for a surprise :)</button>
     <script src="js/scrip.js" defer></script>
 
 </body>

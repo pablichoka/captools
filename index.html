@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <link rel="icon" type="image/x-icon" href="./media/toolbox.png" />
 <link href="./css/siebel_style_2.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" href="./fontawesome/css/all.css">
 <head>
     <title>Capgemini Toolbox</title>
 </head>
 <body onload="init()">
     <header><a href="https://www.capgemini.com/es-es/"><img id="logo" src="./media/cap_logo.png"></a>CAPGEMINI Toolbox<a href="https://www.capgemini.com/es-es/"><img id="logo" src="./media/cap_logo.png"></a></header>
     <h1>
-        SIEBEL environment
+        SIEBEL environment <i class="fa fa-beat fa-flask-vial"></i>
         <input class="button" type="button" value="Show/Hide" onclick="showhide('tab0')">
     </h1>
     <table id="tab0">
@@ -24,7 +25,7 @@
         </tr>
     </table>
     <h2>
-        Capgemini tools
+        Capgemini tools <i class="fa fa-bounce fa-building"></i>
         <input class="button" type="button" value="Show/Hide" onclick="showhide('tab1')">
     </h2>
     <table id="tab1">
@@ -49,7 +50,7 @@
             </td>
         </tr>
     </table>
-    <h3>Learning and formation
+    <h3>Learning and formation <i class="fa fa-fade fa-user-graduate"></i>
         <input class="button" type="button" value="Show/Hide" onclick="showhide('tab2')">
     </h3>
     <table id="tab2">
@@ -60,49 +61,56 @@
             <td><a href="https://capgemini.sumtotal.host/rcore/c/dash/learningfocus/iniitial?isDeepLink=1"><img class="icon" src="./media/mylearning.png"></a></td>
         </tr>
     </table>
-    <h4>Google Calendar
+    <h4>Google Calendar        <i class="fa fa-shake fa-calendar"></i>
     <input class="button" type="button" value="Show/Hide" onclick="showhide('calCont')">
     </h4>
     <div id="calCont" align="center">
         <span id="calSel">
             Introduce aqui tu correo de Google: 
             <input id="mail" type="email">
-            <input class="button" type="button" value="Send" onclick="loadCal()">
+            <input id="sendMail" type="button" value="Send" onclick="loadCal()">
         </span>
         <span id="calBox">
            
         </span>
     </div>
-    <h5>Alpac@s selector
-        <input class="button" type="button" value="Show/Hide" onclick="showhide('selector')">
+    <h5>Tools <i class="fa fa-flip fa-screwdriver-wrench"></i>
+        <input class="button" type="button" value="Show/Hide" onclick="showhide('tools')">
     </h5>
-    <div id="selector">
-        <span id="buttons">
-            <input class="button" type="button" value="Get Alpac@" onclick="randomPick('list')">
-            <input class="button" type="button" value="Reset" onclick="reset()">
-            <input class="button" type="button" value="<<" onclick="NonValid2Valid()">
-            <input class="button" type="button" value=">>" onclick="Valid2NonValid()">
-        </span>
-        <span id="list">
-            <select id="returnList"></select>
-            <ul id="toSelect">
-            </ul>
-        </span>
-    </div>
-    <h6>
-        The decider
-        <input class="button" type="button" value="Show/Hide" onclick="showhide('decider')">
-    </h6>
-    <div id="decider">
-        <span id="optSel">
-            Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>
-        </span>
-        <span id="optFields">
-
-        </span>
+    <div id =tools>
+        <div id="selector">
+        <p>
+            The alpac@s selector <i class="fa fa-beat fa-people-group"></i>
+            <br>
+            <input id="showHideAlpc" type="button" value="Show/Hide" onclick="showhide('sel')">        
+        </p>
+            <div id="sel">
+                <span id="buttons">
+                    <select id="returnList"></select>
+                    <input class="button" type="button" value="Get Alpac@" onclick="randomPick('list')">
+                    <input class="button" type="button" value="Reset" onclick="reset()">
+                    <input class="button" type="button" value="<<" onclick="NonValid2Valid()">
+                    <input class="button" type="button" value=">>" onclick="Valid2NonValid()">
+                </span>
+                <span id="list">
+                    <ul id="toSelect">
+                    </ul>
+                </span>
+            </div>
+        </div>
+        <div id="decider">
+        <p>
+            The decider <i class="fa fa-shake fa-dice"></i>
+            <br>
+            <input id="showHideDec" type="button" value="Show/Hide" onclick="showhide('optFields')">
+        </p>
+            <span id="optFields">
+                Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>
+            </span>
+        </div>
     </div>
     <div class="surprise"></div>
-    <button class="button" id="surp" onclick="surprise()">Click me for a surprise :)</button>
+    <button id="surp" onclick="surprise()">Click me for a surprise <i class="fa fa-fade fa-face-laugh-beam"></i></button>
     <script src="js/scrip.js" defer></script>
 
 </body>

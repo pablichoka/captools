@@ -11,8 +11,9 @@ function init(){
         table.style.display = 'none';
     }
     document.getElementById('calCont').style.display = 'none';
-    document.getElementById('decider').style.display = 'none';
-    document.getElementById('selector').style.display = 'none';
+    document.getElementById('optFields').style.display = 'none';
+    document.getElementById('sel').style.display = 'none';
+    document.getElementById('tools').style.display = 'none';
     const date0 = new Date();
     var day0 = date0.getDay();
     var day1 = date0.getDate();
@@ -30,10 +31,14 @@ function showhide(arg){
     var element = document.getElementById(arg);
     if(arg === "calCont" && element.style.display==='none'){
         alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
+        element.setAttribute('style', 'text-align: left;justify-content: left;margin-left:20px');
+
+    }else if(arg ==="optFields" && element.style.display==='none'){
+        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
     }
-    if (element.style.display === 'none'){
+    else if (element.style.display === 'none'){
         element.style.display = 'block';
-        element.setAttribute('style', 'text-align: center;justify-content: space-evenly;display: flex;');
+        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;');
     }
     else{
         element.style.display = 'none';
@@ -61,14 +66,17 @@ function surprise() {
 //Functions for the decider
 
 var numChoices;
+var decided = false;
 
 function coin(){
     var options = new Array(numChoices);
     for(var i = 0; i<numChoices;i++){
         options[i] = document.getElementById('textField'+i).value;
     }
-    var number = Math.round(Math.random()*options.length-1);
-    document.getElementById('decider').innerHTML = 'The decider...has decided...to decide...'+options[number]+'...no regrets here!';
+    var number = Math.round(Math.random()*(options.length-1));
+    document.getElementById('optFields').innerHTML = 'The decider...has decided...to decide...'+options[number]+'...no regrets here!';
+    decided = true;
+    document.getElementById('optFields').innerHTML += '<input class="button" id="resetDec" type="button" value="New decider" onclick="resetDecider()">';
 }
 
 function fillTheDecider(){
@@ -80,13 +88,29 @@ function fillTheDecider(){
 
 function showTextFields(){
     var textFields = document.getElementById('optFields');
-    textFields.innerHTML = "";
     var options = document.getElementById('numChoices');
     numChoices = options.value;
+    textFields.innerHTML += "<br>";
     for(var i = 0; i<numChoices;i++){
         textFields.innerHTML += 'Option number '+(i+1)+': <input type="text" class="textBox" id="textField'+i+'">';    
     }
     textFields.innerHTML += '<input class="button" id="decideBut" type="button" value="Decide!" onclick="coin()">';
+    textFields.innerHTML += '<input class="button" id="resetDec" type="button" value="New decider" onclick="resetDecider()">';
+}
+
+function resetDecider(){
+    var fields = document.getElementById('optFields');
+    var fields2 = document.getElementById('dec');
+    if(decided = false){
+        fields.innerHTML = "";
+        fields.innerHTML += 'Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>';
+        fields.innerHTML += '<input class="button" id="resetDec" type="button" value="New decider" onclick="resetDecider()">';
+    }else{
+        fields.innerHTML = "";
+        fields.innerHTML += 'Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>';
+        decided = false;
+    }
+    fillTheDecider();
 }
 
 //Function to show the calendar

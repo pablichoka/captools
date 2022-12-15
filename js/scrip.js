@@ -31,14 +31,14 @@ function showhide(arg){
     var element = document.getElementById(arg);
     if(arg === "calCont" && element.style.display==='none'){
         alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
-        element.setAttribute('style', 'text-align: left;justify-content: left;margin-left:20px');
+        element.setAttribute('style', 'text-align: left;justify-content: left;margin:20px');
 
     }else if(arg ==="optFields" && element.style.display==='none'){
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
     }
     else if (element.style.display === 'none'){
         element.style.display = 'block';
-        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;');
+        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;object-fit: scale-down;max-width: 100%;');
     }
     else{
         element.style.display = 'none';

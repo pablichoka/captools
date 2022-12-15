@@ -33,6 +33,8 @@ function showhide(arg){
         alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
         element.setAttribute('style', 'text-align: left;justify-content: left;margin:20px');
 
+    }else if(arg ==="tools" && element.style.display==='none'){
+        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;');
     }else if(arg ==="optFields" && element.style.display==='none'){
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
     }

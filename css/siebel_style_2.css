@@ -8,20 +8,6 @@ body{
     max-height: 100%;
 }
 
-/* @media screen and (max_width: 320px) {
-    body{
-        width: 90%;
-    }
-    img{
-        max-width: 50%;
-        max-height: 50%;
-    }
-    table{
-        width: 50%;
-        height: 50%;
-    }
-} */
-
 header{
     text-align: center;
     font-size: 50px;
@@ -69,15 +55,7 @@ h1:hover,h2:hover,h3:hover,h4:hover,h5:hover{
     border-radius: 20px;
     animation: mymove 8s infinite;
     margin: 10px;
-    object-fit: scale-down;
-
  }
-
-iframe{
-    object-fit: scale-down;
-    max-width:81.8vw;
-    margin-top: 10px;
-}
 
 #logo{
     border:2px;
@@ -208,11 +186,14 @@ img{
 }
 
 #calendar{
-    border: 2px; 
+    border: 2px;
     border-radius: 10px;
     border-style: solid;
-    width: 800px;
-    height: 600px;
+    object-fit: scale-down;
+    width: 95.5%;
+    height: 400px;
+    margin-top: 10px;
+    /* margin: auto; */
     padding: 5px;
     background-color: white;
 }
@@ -222,6 +203,8 @@ img{
     height: 85px;
     display:grid;
     justify-content: left;
+    left: 32px;
+    position: absolute;
     padding-bottom: 60px;
 }
 
@@ -309,4 +292,21 @@ img{
         border-color: rgb(89, 248, 89);}
     to {box-sizing: border-box;
         border-color:rgb(250, 221, 93);}
+}
+
+@media screen and (orientation:portrait){
+    header{
+        font-size: 20px;
+    }
+    h1,h2,h3,h4,h5{
+        font-size: 15px;
+    }
+    #logo{
+        scale: 75%;
+        margin-top: 10px;
+    }
+    .button{
+        margin: auto;
+    }
+
 }

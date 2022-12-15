@@ -1,5 +1,6 @@
 var users = ['Javier', 'Antonio', 'Pablo', 'Alba', 'Cristina','Lidia', 'Jose Luis', 
 'Marta', 'Asun', 'Aida', 'Rocio', 'Miguel', 'Miguel Angel', 'Maria', 'Enzo', 'Nacho', 'Raquel', 'Yeray'];
+users.sort();
 var nonValid = [];
 
 //Generic functions
@@ -155,6 +156,7 @@ function deleteList(user){
 function reset(){
     users = ['Javier', 'Antonio', 'Pablo', 'Alba', 'Cristina', 'Lidia', 'Jose Luis', 
     'Marta', 'Asun', 'Aida', 'Rocio', 'Miguel', 'Miguel Angel', 'Maria', 'Enzo', 'Nacho', 'Raquel', 'Yeray'];
+    users.sort();
     nonValid = [];
     var list = document.getElementById('toSelect');
     list.innerHTML= "";

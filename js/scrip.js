@@ -15,6 +15,7 @@ function init(){
     document.getElementById('optFields').style.display = 'none';
     document.getElementById('sel').style.display = 'none';
     document.getElementById('tools').style.display = 'none';
+    document.getElementById('dacoin').style.display = 'none';
     const date0 = new Date();
     var day0 = date0.getDay();
     var day1 = date0.getDate();
@@ -38,8 +39,9 @@ function showhide(arg){
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;');
     }else if(arg ==="optFields" && element.style.display==='none'){
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
-    }
-    else if (element.style.display === 'none'){
+    }else if(arg ==="dacoin" && element.style.display==='none'){
+        element.setAttribute('style', 'text-align: left;justify-content: center;display: grid;');
+    }else if (element.style.display === 'none'){
         element.style.display = 'block';
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;object-fit: scale-down;max-width: 100%;');
     }
@@ -82,7 +84,7 @@ function surprise() {
 var numChoices;
 var decided = false;
 
-function coin(){
+function decider(){
     var options = new Array(numChoices);
     for(var i = 0; i<numChoices;i++){
         options[i] = document.getElementById('textField'+i).value;
@@ -108,7 +110,7 @@ function showTextFields(){
     for(var i = 0; i<numChoices;i++){
         textFields.innerHTML += 'Option number '+(i+1)+': <input type="text" class="textBox" id="textField'+i+'">';    
     }
-    textFields.innerHTML += '<input class="button" id="decideBut" type="button" value="Decide!" onclick="coin()">';
+    textFields.innerHTML += '<input class="button" id="decideBut" type="button" value="Decide!" onclick="decider()">';
     textFields.innerHTML += '<input class="button" id="resetDec" type="button" value="New decider" onclick="resetDecider()">';
 }
 
@@ -125,6 +127,19 @@ function resetDecider(){
         decided = false;
     }
     fillTheDecider();
+}
+
+//Funtion for the coin
+
+function coin(){
+    var numb = Math.random();
+    var side;
+    if(numb < 0.5){
+        side = "Cara";
+    }else{
+        side = "Cruz";
+    }
+    console.log(side);
 }
 
 //Function to show the calendar

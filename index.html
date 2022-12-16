@@ -109,6 +109,18 @@
                 Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>
             </span>
         </div>
+        <div id="coin">
+            <p>
+                The coin <i class="fa fa-flip fa-coin"></i>
+                <br>
+                <input id="showHideCoin" type="button" value="Show/Hide" onclick="showhide('dacoin')">
+                <br>
+                <span id="dacoin">
+                    Choose your side and throw the coin 
+                    <input id="throwCoin" type="button" value="Throw it!" onclick="coin('optFields')">
+                </span>
+            </p>
+        </div>
     </div>
     <button id="surp" onclick="surprise()">Click me for a surprise <i class="fa fa-fade fa-face-laugh-beam"></i></button>
     <div class="surprise"></div>

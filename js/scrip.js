@@ -131,15 +131,24 @@ function resetDecider(){
 
 //Funtion for the coin
 
+var side;
+
 function coin(){
     var numb = Math.random();
-    var side;
     if(numb < 0.5){
         side = "Cara";
     }else{
         side = "Cruz";
     }
-    console.log(side);
+    document.getElementById('dacoin').innerHTML='Clinck, clinck, clinck...';
+    setTimeout(showCoin,2000);
+}
+
+function showCoin(){
+    var dacoin = document.getElementById('dacoin');
+    dacoin.innerHTML=side;
+    dacoin.innerHTML+='<input id="throwAgain" type="button" value="New throw" onclick="coin()">';
+    dacoin.style = 'justify-content: center; display: grid; text-align:center;';
 }
 
 //Function to show the calendar

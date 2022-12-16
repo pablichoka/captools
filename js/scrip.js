@@ -40,7 +40,7 @@ function showhide(arg){
     }else if(arg ==="optFields" && element.style.display==='none'){
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
     }else if(arg ==="dacoin" && element.style.display==='none'){
-        element.setAttribute('style', 'text-align: left;justify-content: center;display: grid;');
+        element.setAttribute('style', 'text-align: left;justify-content: center;display: grid;text-align:center;');
     }else if (element.style.display === 'none'){
         element.style.display = 'block';
         element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;object-fit: scale-down;max-width: 100%;');

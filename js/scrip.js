@@ -50,20 +50,31 @@ function showhide(arg){
 
 //Functions for the surprise
 
+var showed = false;
+var container = document.querySelector('.surprise');
+
 function surprise() {
-    alert('Latino heat, right?');
-    const img1 = document.createElement('img');
-    img1.src = './media/bipbipbop1.png';
-    document.querySelector('.surprise').appendChild(img1);
-    const img2 = document.createElement('img');
-    img2.src = './media/bipbipbop2.png';
-    document.querySelector('.surprise').appendChild(img2);
-    const img3 = document.createElement('img');
-    img3.src = './media/bipbipbop3.png';
-    document.querySelector('.surprise').appendChild(img3);
-    const img4 = document.createElement('img');
-    img4.src = './media/bipbipbop4.png';
-    document.querySelector('.surprise').appendChild(img4);
+    if(showed === false){
+        alert('Latino heat, right?');
+        container.style = "display: grid;";
+        const img1 = document.createElement('img');
+        img1.src = './media/bipbipbop1.png';
+        container.appendChild(img1);
+        const img2 = document.createElement('img');
+        img2.src = './media/bipbipbop2.png';
+        container.appendChild(img2);
+        const img3 = document.createElement('img');
+        img3.src = './media/bipbipbop3.png';
+        container.appendChild(img3);
+        const img4 = document.createElement('img');
+        img4.src = './media/bipbipbop4.png';
+        container.appendChild(img4);
+        showed = true;
+    }else{
+        container.innerHTML= "";
+        container.style = "display: none;";
+        showed = false;
+    }
 }
 
 //Functions for the decider

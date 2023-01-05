@@ -55,26 +55,60 @@ header:hover{
 
 /*Header of each tool of the page*/
 
-h1,h2,h3,h4,h5{
+h1{
     font-size: 20px;
     border: 5px;
     padding-left: 8px;
     padding-bottom: 2px;
     padding: 12px;
-    border-style: outset;
+    border-style: inset;
     border-radius: 20px;
     animation: mymove 9s infinite;
     margin:10px;
 }
 
-h1:hover,h2:hover,h3:hover,h4:hover,h5:hover{
+h1:hover{
     animation: mymove 1s infinite;
 }
 
 @media screen and (orientation:portrait){ /*Settings for mobile view*/
-    h1,h2,h3,h4,h5{
+    h1{
         font-size: 15px;
     }
+}
+
+/*Tab style for elements*/
+
+#elements{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    border: 5px;
+    border-style: inset;
+    border-radius: 20px;
+    padding: 10px;
+    animation: mymove 8s infinite;
+}
+
+@media screen and (orientation:portrait){ /*Settings for mobile view*/
+    #elements{
+        object-fit: scale-down;
+        font-size: 14px;
+    }
+}
+
+#elements td{
+    margin: 10px;
+    padding: 15px;
+    border-style: outset;
+    border-radius: 20px;
+    background-color:lightskyblue;
+    border: 5px;
+    border-style: outset;
+}
+
+#elements td:hover{
+    animation: border_ani2 1s infinite;
 }
 
 /*Tabs style for h1, h2 and h3*/
@@ -83,47 +117,24 @@ h1:hover,h2:hover,h3:hover,h4:hover,h5:hover{
     text-align: center;
     justify-content: space-evenly;
     display: flex;
-    border-spacing: 20px;
+    border-spacing: 5px;
     border-style: groove;
     border: 5px;
     border-radius: 20px;
-    animation: mymove 8s infinite;
+    animation: mymove 6s infinite;
     margin: 10px;
-}
-
-table td{
-    box-sizing: border-box;
 }
 
 /*Style applied to the clanedar section*/
 
-#calCont{
-    justify-content: left;
-    text-align: left;
-    border: 5px;
-    border-style: inset;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: aliceblue;
-    margin: 10px;
-    margin-right: 15px;
-}
-
-#calCont:hover{
-    animation: border_ani2 1s infinite;
-}
-
 #calendar{
-    border: 2px;
-    border-radius: 10px;
-    border-style: solid;
     object-fit: scale-down;
     width: 95.5%;
-    height: 400px;
     margin-top: 10px;
-    /* margin: auto; */
     padding: 5px;
     background-color: white;
+    animation: mymove 6s infinite;
+    display:grid;
 }
 
 #sendMail{ /*Style of the sendMail button*/
@@ -138,20 +149,35 @@ table td{
     margin-right: 15px;
 }
 
+#gcal{
+    height: 500px;
+    width: 99%;
+}
+
 #sendMail:hover{
     animation: border_ani0 1s infinite;
 }
 
 /*Settings of style for the alpac@s selector*/
 
+#tools{
+    display: flex;
+}
+
+@media screen and (orientation:portrait){ /*Settings for mobile view*/
+    #tools{
+        display: grid;
+    }
+}
+
 #selector{ /*Style of the div container*/
     border: 5px;
-    border-style: inset;
+    border-style: outset;
     border-radius: 20px;
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:aliceblue;
+    background-color:cornflowerblue;
 }
 
 #showHideAlpc{ /*Style of the show hide button of the tool*/
@@ -204,12 +230,12 @@ table td{
 
 #decider{ /*Style of the div container*/
     border: 5px;
-    border-style: inset;
+    border-style: outset;
     border-radius: 20px;
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:aliceblue;
+    background-color:cornflowerblue;
 }
 
 #decider:hover{ /*Animation of the decider container*/
@@ -251,12 +277,12 @@ table td{
 
 #coin{ /*Style of the div container*/
     border: 5px;
-    border-style: inset;
+    border-style: outset;
     border-radius: 20px;
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:aliceblue;
+    background-color:cornflowerblue;
 }
 
 #coin:hover{
@@ -290,8 +316,28 @@ table td{
     margin: 5px;
 }
 
-#showHideCoin:hover, #throwCoin:hover, #throwAgain:hover{
+#showHideCoin:hover, #throwCoin:hover{
     animation: border_ani0 1s infinite;
+}
+
+/*Style for the workbench div*/
+
+#workbench{
+    border: 5px;
+    border-style: inset;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    animation: mymove 6s infinite;
+    justify-content: space-evenly;
+    vertical-align: middle;
+    display: flex;
+}
+
+@media screen and (orientation:portrait){ /*Settings for mobile view*/
+    #workbench{
+        font-size: 14px;
+    }
 }
 
 /*Style of surprise div and surprise button*/
@@ -372,6 +418,12 @@ table td{
     }
 }
 
+/*Style for options*/
+
+select:focus{
+    animation: ani4sel 4s infinite;
+}
+
 /*Animations*/
 
 @keyframes border_ani0{
@@ -433,3 +485,10 @@ table td{
     85%{background-color:rgb(243, 170, 243);}
     to {background-color:rgba(128, 252, 210, 0.959);}
   }
+
+@keyframes ani4sel {
+    from {background-color:rgba(255, 238, 182, 0.959)}
+    20% {background-color:rgb(97, 121, 253);}
+    40%{background-color:rgb(255, 238, 182, 0.959);}
+    to {background-color:rgba(255, 238, 182, 0.959);}
+}

@@ -7,15 +7,13 @@ var nonValid = [];
 
 function init(){
     var i;
-    for(i=0;i<document.getElementsByTagName('table').length;i++){
-        var table = document.getElementsByTagName('table')[i];
+    for(i=0;i<document.getElementsByClassName('tab').length;i++){
+        var table = document.getElementsByClassName('tab')[i];
         table.style.display = 'none';
     }
-    document.getElementById('calCont').style.display = 'none';
-    document.getElementById('optFields').style.display = 'none';
-    document.getElementById('sel').style.display = 'none';
+    document.getElementById('workbench').style.display = 'none';
     document.getElementById('tools').style.display = 'none';
-    document.getElementById('dacoin').style.display = 'none';
+    document.getElementById('calendar').style.display = 'none';
     const date0 = new Date();
     var day0 = date0.getDay();
     var day1 = date0.getDate();
@@ -27,27 +25,36 @@ function init(){
     }
     fillTheList();
     fillTheDecider();
+    hideTools();
 }
 
-function showhide(arg){
-    var element = document.getElementById(arg);
-    if(arg === "calCont" && element.style.display==='none'){
-        alert("Para poder mostrar el calendario correctamente es necesario que estés logueado en tu cuenta de Google en este navegador.")
-        element.setAttribute('style', 'text-align: left;justify-content: left;margin:20px');
+var divs = ['tab1', 'tab2', 'calendar', 'tools'];
 
-    }else if(arg ==="tools" && element.style.display==='none'){
-        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;');
-    }else if(arg ==="optFields" && element.style.display==='none'){
-        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: grid;');
-    }else if(arg ==="dacoin" && element.style.display==='none'){
-        element.setAttribute('style', 'text-align: left;justify-content: center;display: grid;text-align:center;');
-    }else if (element.style.display === 'none'){
-        element.style.display = 'block';
-        element.setAttribute('style', 'text-align: left;justify-content: space-evenly;display: flex;object-fit: scale-down;max-width: 100%;');
+function showhide(arg){
+    var wb = document.getElementById('workbench');
+
+    if(document.getElementById(arg).style.display != 'none'){
+        wb.style.display = 'none';
+        document.getElementById(arg).style.display = 'none';
+        return;
     }
-    else{
-        element.style.display = 'none';
-    }      
+    
+    for(var i = 0; i<divs.length; i++){
+        if(arg === divs[i]){
+            document.getElementById(divs[i]).style.display = '';
+            wb.style.display = 'flex';
+        }else{
+            document.getElementById(divs[i]).style.display = 'none';
+        }
+    }
+
+    if(arg === divs[3] && document.getElementById(divs[3]).style.display != 'none'){
+        document.getElementById(tools[0]).style.display = '';
+        document.getElementById(tools[1]).style.display = '';
+        document.getElementById(tools[2]).style.display = '';
+        hideTools();
+    }
+
 }
 
 //Functions for the surprise
@@ -116,7 +123,6 @@ function showTextFields(){
 
 function resetDecider(){
     var fields = document.getElementById('optFields');
-    var fields2 = document.getElementById('dec');
     if(decided = false){
         fields.innerHTML = "";
         fields.innerHTML += 'Select the number of options: <select id="numChoices" onchange="showTextFields()"></select>';
@@ -140,14 +146,17 @@ function coin(){
     }else{
         side = "Cruz";
     }
-    document.getElementById('dacoin').innerHTML='Clinck, clinck, clinck...';
+    document.getElementById('dacoin').innerHTML ='<br>'
+    document.getElementById('dacoin').innerHTML +='Clinck, clinck, clinck...';
     setTimeout(showCoin,2000);
 }
 
 function showCoin(){
     var dacoin = document.getElementById('dacoin');
-    dacoin.innerHTML=side;
-    dacoin.innerHTML+='<input id="throwAgain" type="button" value="New throw" onclick="coin()">';
+    dacoin.innerHTML = '<br>'
+    dacoin.innerHTML += side;
+    dacoin.innerHTML += '<br>'
+    dacoin.innerHTML +='<input id="throwAgain" type="button" value="New throw" onclick="coin()">';
     dacoin.style = 'justify-content: center; display: grid; text-align:center;';
 }
 
@@ -157,9 +166,10 @@ function loadCal(){
     var mailAux = document.getElementById('mail').value;
     var mail = mailAux.replace("@", "%40");
     const calBox = document.getElementById('calBox');
-    calBox.innerHTML ='<iframe id="calendar" src="https://calendar.google.com/calendar/embed?src='+mail+'&ctz=Europe%2FMadrid"></iframe>';
+    calBox.style.display = '';
+    alert("It is required that you are logged into your Google account in this browser. Otherwise, it wont' work.")
+    calBox.innerHTML ='<iframe id="gcal" src="https://calendar.google.com/calendar/embed?src='+mail+'&ctz=Europe%2FMadrid"></iframe>';
 }
-
 
 //Functions for Alpac@s selector
 
@@ -246,6 +256,31 @@ function NonValid2Valid(){
             deleteList(selUser);
             break;
             }
+        }
+    }
+}
+
+function hideTools(){
+    var alpacs = document.getElementById('sel');
+    var decider = document.getElementById('optFields');
+    var coin = document.getElementById('dacoin');
+
+    alpacs.style.display = 'none';
+    decider.style.display = 'none';
+    coin.style.display = 'none';
+}
+
+var tool = ['optFields', 'sel', 'dacoin'];
+var tools = ['decider', 'selector', 'coin'];
+
+function showTool(arg){
+    for(var i = 0; i<tool.length;i++){
+        if(arg === tool[i]){
+            document.getElementById(tool[i]).style.display = '';
+            document.getElementById(tools[i]).style.display = '';
+        }else{
+            document.getElementById(tool[i]).style.display = 'none';
+            document.getElementById(tools[i]).style.display = 'none';
         }
     }
 }

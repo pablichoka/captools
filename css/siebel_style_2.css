@@ -102,7 +102,7 @@ h1:hover{
     padding: 15px;
     border-style: outset;
     border-radius: 20px;
-    background-color:lightskyblue;
+    background-color:lightpink;
     border: 5px;
     border-style: outset;
 }
@@ -121,7 +121,6 @@ h1:hover{
     border-style: groove;
     border: 5px;
     border-radius: 20px;
-    animation: mymove 6s infinite;
     margin: 10px;
 }
 
@@ -132,8 +131,6 @@ h1:hover{
     width: 95.5%;
     margin-top: 10px;
     padding: 5px;
-    background-color: white;
-    animation: mymove 6s infinite;
     display:grid;
 }
 
@@ -177,7 +174,7 @@ h1:hover{
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:cornflowerblue;
+    background-color:indianred;
 }
 
 #showHideAlpc{ /*Style of the show hide button of the tool*/
@@ -235,7 +232,7 @@ h1:hover{
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:cornflowerblue;
+    background-color:indianred;
 }
 
 #decider:hover{ /*Animation of the decider container*/
@@ -282,7 +279,7 @@ h1:hover{
     padding-top: 0px;
     padding: 25px;
     margin: 15px;
-    background-color:cornflowerblue;
+    background-color:indianred;
 }
 
 #coin:hover{
@@ -480,10 +477,10 @@ select:focus{
 }
 
 @keyframes mymove {
-    from {background-color:rgba(128, 252, 210, 0.959)}
-    15% {background-color:rgb(243, 170, 243);}
-    85%{background-color:rgb(243, 170, 243);}
-    to {background-color:rgba(128, 252, 210, 0.959);}
+    from {background-color:aqua}
+    15% {background-color:lightblue;}
+    85%{background-color:lightblue;}
+    to {background-color:aqua;}
   }
 
 @keyframes ani4sel {

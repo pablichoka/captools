@@ -4,10 +4,10 @@ body{
     font-size: large;
     font-weight:bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color:antiquewhite;
+    background-color:  antiquewhite;
+    /* animation: gradient 10s ease infinite; */
     object-fit: scale-down;
-    max-width: 100%;
-    max-height: 100%;
+    /* background-size: 200% 300%; */
 }
 
 /*Title of the page*/
@@ -15,15 +15,13 @@ body{
 header{
     text-align: center;
     font-size: 50px;
-    animation: mymove 5s infinite;
+    background: linear-gradient(-45deg, #f7997d, #f577a7, #23a6d5, #23d5ab);
+    animation: gradient 10s ease infinite;
     border-radius: 20px;
     border: 5px;
     border-style:ridge;
     align-items: center;
-}
-
-header:hover{
-    animation: mymove 1s infinite;
+    background-size: 300% 150%;
 }
 
 #logo{
@@ -63,12 +61,10 @@ h1{
     padding: 12px;
     border-style: inset;
     border-radius: 20px;
-    animation: mymove 9s infinite;
+    background: linear-gradient(-45deg, lightblue, orchid, lightblue, #23d5ab);
+    animation: gradient 15s ease infinite;
+    background-size: 300% 150%;
     margin:10px;
-}
-
-h1:hover{
-    animation: mymove 1s infinite;
 }
 
 @media screen and (orientation:portrait){ /*Settings for mobile view*/
@@ -87,7 +83,9 @@ h1:hover{
     border-style: inset;
     border-radius: 20px;
     padding: 10px;
-    animation: mymove 8s infinite;
+    background: linear-gradient(-45deg, lightblue, orchid, lightblue, #23d5ab);
+    animation: gradient 15s ease infinite;
+    background-size: 300% 150%;
 }
 
 @media screen and (orientation:portrait){ /*Settings for mobile view*/
@@ -317,6 +315,10 @@ h1:hover{
     animation: border_ani0 1s infinite;
 }
 
+#aniCoin{
+    display: flex;
+}
+
 /*Style for the workbench div*/
 
 #workbench{
@@ -325,7 +327,9 @@ h1:hover{
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    animation: mymove 6s infinite;
+    background: linear-gradient(-45deg, lightblue, orchid, lightblue, #23d5ab);
+    animation: gradient 15s ease infinite;
+    background-size: 300% 150%;
     justify-content: space-evenly;
     vertical-align: middle;
     display: flex;
@@ -488,4 +492,27 @@ select:focus{
     20% {background-color:rgb(97, 121, 253);}
     40%{background-color:rgb(255, 238, 182, 0.959);}
     to {background-color:rgba(255, 238, 182, 0.959);}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes background1 {
+    0%{
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        animation: gradient 10s ease infinite;
+    }100%{
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        animation: gradient 10s ease infinite;
+    }
+
 }

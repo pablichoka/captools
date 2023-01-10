@@ -141,6 +141,9 @@
                     </span>
                 </p>
             </div>
+            <div id="translator">
+                <p><?php  ?></p>
+            </div>
         </div>
 
     </div>

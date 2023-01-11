@@ -147,8 +147,9 @@ function coin(){
         side = "Cruz";
     }
     document.getElementById('dacoin').innerHTML ='<br>'
-    document.getElementById('dacoin').innerHTML +='Clinck, clinck, clinck...';
-    setTimeout(showCoin,2000);
+    // document.getElementById('dacoin').innerHTML +='Clinck, clinck, clinck...';
+    document.getElementById('dacoin').innerHTML += "<i id='aniCoin' class='fa fa-flip fa-circle-half-stroke'></i>";
+    setTimeout(showCoin,2200);
 }
 
 function showCoin(){

@@ -6,6 +6,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <title>Capgemini Toolbox</title>
 </head>
 
@@ -133,16 +134,32 @@
             <div id="coin">
                 <p onclick="showTool('dacoin')">
                     The coin <i class="fa fa-fade fa-coins"></i>
-                    <br>
-                    <span id="dacoin">
-                        <br>
-                        Choose your side and throw the coin
-                        <input id="throwCoin" type="button" value="Throw it!" onclick="coin('optFields')">
-                    </span>
                 </p>
+                <span id="dacoin">
+                    <br>
+                    Choose your side and throw the coin
+                    <input id="throwCoin" type="button" value="Throw it!" onclick="coin('optFields')">
+                </span>
+                
             </div>
-            <div id="translator">
-                <!-- <p></p> -->
+            <div id="encoder">
+                <p onclick="showTool('wEncoder')">
+                Cipher and decipher <i class="fa fa-fade fa-key"></i>
+                </p>
+                <div id="wEncoder">
+                    <p>Enter your key here: <input id="keyfield" type="text" value="Key..." onfocus="this.value=''"></p>
+                    <p id="cipher">Cipher</p>
+                    <textarea cols="35" rows="5" id="toCipherIn"></textarea><textarea cols="35" rows="5" id="toCipherOut" readonly></textarea>
+                    <br>
+                    <input id="ciph" type="button" value="Cipher" onclick="enc('toCipherIn','keyfield')">
+                    <br>
+                    <p id="decipher">Decipher</p>
+                    <textarea cols="35" rows="5" id="toDecipherIn"></textarea><textarea cols="35" rows="5" id="toDecipherOut" readonly></textarea>
+                    <br>
+                    <input id="deciph" type="button" value="Decipher" onclick="dec('toDecipherIn','keyfield')">
+                    <br>
+                    <p id="keygen">Keygen: <input id="keygenfield" type="text" value="Generated key..."><input id="kgen" type="button" value="New key" onclick="keyGen()" style="margin-top: 0px;margin-bottom: 0px;"></p>
+                </div>
             </div>
         </div>
 

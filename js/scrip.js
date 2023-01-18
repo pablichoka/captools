@@ -265,14 +265,17 @@ function hideTools(){
     var alpacs = document.getElementById('sel');
     var decider = document.getElementById('optFields');
     var coin = document.getElementById('dacoin');
+    var cipher = document.getElementById('wEncoder');
 
     alpacs.style.display = 'none';
     decider.style.display = 'none';
     coin.style.display = 'none';
+    cipher.style.display = 'none';
+
 }
 
-var tool = ['optFields', 'sel', 'dacoin'];
-var tools = ['decider', 'selector', 'coin'];
+var tool = ['optFields', 'sel', 'dacoin', 'wEncoder'];
+var tools = ['decider', 'selector', 'coin', 'encoder'];
 
 function showTool(arg){
     for(var i = 0; i<tool.length;i++){
@@ -285,3 +288,44 @@ function showTool(arg){
         }
     }
 }
+
+//Cipher and decipher
+
+var encrypted;
+var decrypted;
+var keyElements = new Array(20);
+var key = "";
+
+function keyGen(){
+    key = "";
+
+    for(var i = 0; i < 20; i++){
+        keyElements[i] = Math.floor(Math.random()*94)+33;
+        
+    }
+    for(var i = 0; i<keyElements.length;i++){
+        key += String.fromCharCode(keyElements[i]);
+    }
+    document.getElementById('keygenfield').value = key;
+}
+
+function enc(msg,key){
+    var mnsj = document.getElementById(msg).value;
+    var k = document.getElementById(key).value;
+
+    encrypted = CryptoJS.AES.encrypt(mnsj, k);
+    document.getElementById('toCipherOut').value = encrypted.toString();
+}
+
+function dec(msg,key){
+    var mnsj = document.getElementById(msg).value;
+    var k = document.getElementById(key).value;
+
+    decrypted = CryptoJS.AES.decrypt(mnsj, k).toString(CryptoJS.enc.Utf8);
+    document.getElementById('toDecipherOut').value = decrypted;
+}
+
+// encrypted = CryptoJS.AES.encrypt('mensaje cifrado', 'key');
+// console.log(encrypted.toString());
+// decrypted = CryptoJS.AES.decrypt(encrypted, 'key').toString(CryptoJS.enc.Utf8);
+// console.log(decrypted);

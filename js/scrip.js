@@ -325,7 +325,8 @@ function dec(msg,key){
     document.getElementById('toDecipherOut').value = decrypted;
 }
 
-// encrypted = CryptoJS.AES.encrypt('mensaje cifrado', 'key');
-// console.log(encrypted.toString());
-// decrypted = CryptoJS.AES.decrypt(encrypted, 'key').toString(CryptoJS.enc.Utf8);
-// console.log(decrypted);
+function copy(text){
+    var copy = document.getElementById(text);
+    copy.select();
+    document.execCommand("copy");
+}

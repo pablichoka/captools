@@ -151,14 +151,15 @@
                     <p id="cipher">Cipher</p>
                     <textarea cols="35" rows="5" id="toCipherIn"></textarea><textarea cols="35" rows="5" id="toCipherOut" readonly></textarea>
                     <br>
-                    <input id="ciph" type="button" value="Cipher" onclick="enc('toCipherIn','keyfield')">
+                    <input id="copy" type="button" value="Copy ciphered message" onclick="copy('toCipherOut')" style="margin-top: 5px;margin-bottom: 0px;"><input id="ciph" type="button" value="Cipher" onclick="enc('toCipherIn','keyfield')">
                     <br>
                     <p id="decipher">Decipher</p>
                     <textarea cols="35" rows="5" id="toDecipherIn"></textarea><textarea cols="35" rows="5" id="toDecipherOut" readonly></textarea>
                     <br>
-                    <input id="deciph" type="button" value="Decipher" onclick="dec('toDecipherIn','keyfield')">
+                    <input id="copy" type="button" value="Copy deciphered message" onclick="copy('toDecipherOut')" style="margin-top: 5px;margin-bottom: 0px;"><input id="deciph" type="button" value="Decipher" onclick="dec('toDecipherIn','keyfield')">
                     <br>
-                    <p id="keygen">Keygen: <input id="keygenfield" type="text" value="Generated key..."><input id="kgen" type="button" value="New key" onclick="keyGen()" style="margin-top: 0px;margin-bottom: 0px;"></p>
+                    <br>
+                    <p id="keygen">Keygen: <input id="keygenfield" type="text" value="Generated key..."><input id="copy" type="button" value="Copy key" onclick="copy('keygenfield')" style="margin-top: 0px;margin-bottom: 0px;"><input id="kgen" type="button" value="New key" onclick="keyGen()" style="margin-top: 0px;margin-bottom: 0px;"></p>
                 </div>
             </div>
         </div>

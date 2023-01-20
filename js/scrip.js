@@ -54,7 +54,6 @@ function showhide(arg){
         }
         hideTools();
     }
-
 }
 
 //Functions for the surprise

@@ -49,9 +49,9 @@ function showhide(arg){
     }
 
     if(arg === divs[3] && document.getElementById(divs[3]).style.display != 'none'){
-        document.getElementById(tools[0]).style.display = '';
-        document.getElementById(tools[1]).style.display = '';
-        document.getElementById(tools[2]).style.display = '';
+        for(var i = 0; i<tools.length;i++){
+            document.getElementById(tools[i]).style.display = '';
+        }
         hideTools();
     }
 

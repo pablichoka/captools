@@ -330,3 +330,13 @@ function copy(text){
     copy.select();
     document.execCommand("copy");
 }
+
+async function paste(text){
+    var field = document.getElementById(text);
+    var cb = await navigator.clipboard.readText();
+    field.value = cb;
+    // var paste = document.getElementById(text);
+    // paste.addEventListener('click', () =>{
+    //     navigator.clipboard.readText().then((clipText) => (paste.innerText = clipText));
+    // });
+}

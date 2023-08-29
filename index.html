@@ -77,6 +77,10 @@
                     <a href="https://myhr-capgemini.neocaseonline.com/Default.aspx?logRetry=5&PageId=1226"><img
                             class="icon" src="./media/hr.png"></a>
                 </td>
+                <td>
+                    <a href="https://capgemini.sumtotal.host/rcore/c/dash/learningfocus/iniitial?isDeepLink=1"><img
+                            class="icon" src="./media/mylearning.png"></a>
+                </td>
             </tr>
         </table>
 
@@ -87,8 +91,10 @@
                 <td><a href="https://www.coursera.org/"><img class="icon" src="./media/coursera.png"></a></td>
                 <td><a href="https://degreed.com/dguser6xe0037/dashboard/discover"><img class="icon"
                             src="./media/next.png"></a></td>
-                <td><a href="https://capgemini.sumtotal.host/rcore/c/dash/learningfocus/iniitial?isDeepLink=1"><img
-                            class="icon" src="./media/mylearning.png"></a></td>
+                <td>
+                    <a href="https://capgemini.udemy.com/organization/home/"><img
+                        class="icon" src="./media/udemy.png"></a>
+                </td>
             </tr>
         </table>
 
@@ -140,33 +146,42 @@
                     Choose your side and throw the coin
                     <input id="throwCoin" type="button" value="Throw it!" onclick="coin('optFields')">
                 </span>
-                
+
             </div>
             <div id="encoder">
                 <p onclick="showTool('wEncoder')">
-                Cipher and decipher <i class="fa fa-fade fa-key"></i>
+                    Cipher and decipher <i class="fa fa-fade fa-key"></i>
                 </p>
                 <div id="wEncoder">
-                    <p>Enter your key here: 
+                    <p>Enter your key here:
                         <input id="keyfield" type="text" value="Key..." onfocus="this.value=''">
                         <input id="paste" type="button" value="Paste" onclick="paste('keyfield')">
                     </p>
                     <p id="cipher">Cipher</p>
-                    <textarea cols="35" rows="5" id="toCipherIn"></textarea><textarea cols="35" rows="5" id="toCipherOut" readonly></textarea>
+                    <textarea cols="35" rows="5" id="toCipherIn"></textarea><textarea cols="35" rows="5"
+                        id="toCipherOut" readonly></textarea>
                     <br>
-                    <input id="paste" type="button" value="Paste" onclick="paste('toCipherIn')" style="margin-top: 5px;margin-bottom: 0px;">
-                    <input id="copy" type="button" value="Copy" onclick="copy('toCipherOut')" style="margin-top: 5px;margin-bottom: 0px;">
+                    <input id="paste" type="button" value="Paste" onclick="paste('toCipherIn')"
+                        style="margin-top: 5px;margin-bottom: 0px;">
+                    <input id="copy" type="button" value="Copy" onclick="copy('toCipherOut')"
+                        style="margin-top: 5px;margin-bottom: 0px;">
                     <input id="ciph" type="button" value="Cipher" onclick="enc('toCipherIn','keyfield')">
                     <br>
                     <p id="decipher">Decipher</p>
-                    <textarea cols="35" rows="5" id="toDecipherIn"></textarea><textarea cols="35" rows="5" id="toDecipherOut" readonly></textarea>
+                    <textarea cols="35" rows="5" id="toDecipherIn"></textarea><textarea cols="35" rows="5"
+                        id="toDecipherOut" readonly></textarea>
                     <br>
-                    <input id="paste" type="button" value="Paste" onclick="paste('toDecipherIn')" style="margin-top: 5px;margin-bottom: 0px;">
-                    <input id="copy" type="button" value="Copy" onclick="copy('toDecipherOut')" style="margin-top: 5px;margin-bottom: 0px;">
+                    <input id="paste" type="button" value="Paste" onclick="paste('toDecipherIn')"
+                        style="margin-top: 5px;margin-bottom: 0px;">
+                    <input id="copy" type="button" value="Copy" onclick="copy('toDecipherOut')"
+                        style="margin-top: 5px;margin-bottom: 0px;">
                     <input id="deciph" type="button" value="Decipher" onclick="dec('toDecipherIn','keyfield')">
                     <br>
                     <br>
-                    <p id="keygen">Keygen: <input id="keygenfield" type="text" value="Generated key..." readonly><input id="copy" type="button" value="Copy key" onclick="copy('keygenfield')" style="margin-top: 0px;margin-bottom: 0px;"><input id="kgen" type="button" value="New key" onclick="keyGen()" style="margin-top: 0px;margin-bottom: 0px;"></p>
+                    <p id="keygen">Keygen: <input id="keygenfield" type="text" value="Generated key..." readonly><input
+                            id="copy" type="button" value="Copy key" onclick="copy('keygenfield')"
+                            style="margin-top: 0px;margin-bottom: 0px;"><input id="kgen" type="button" value="New key"
+                            onclick="keyGen()" style="margin-top: 0px;margin-bottom: 0px;"></p>
                 </div>
             </div>
         </div>

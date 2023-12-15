@@ -2,18 +2,23 @@ var users = ['Javier', 'Antonio', 'Pablo', 'Alba', 'Cristina','Lidia', 'Jose Lui
 'Marta', 'Asun', 'Aida', 'Rocio', 'Miguel', 'Miguel Angel', 'Maria', 'Enzo', 'Nacho', 'Raquel', 'Yeray'];
 users.sort();
 var nonValid = [];
+var divs = ['tab1', 'tab2', 'calendar', 'tools'];
 
 //Generic functions
 
 function init(){
+    hideTools();
+    fillTheList();
+    fillTheDecider();
+    checkDate();
+}
+
+function checkDate(){
     var i;
     for(i=0;i<document.getElementsByClassName('tab').length;i++){
         var table = document.getElementsByClassName('tab')[i];
         table.style.display = 'none';
     }
-    document.getElementById('workbench').style.display = 'none';
-    document.getElementById('tools').style.display = 'none';
-    document.getElementById('calendar').style.display = 'none';
     const date0 = new Date();
     var day0 = date0.getDay();
     var day1 = date0.getDate();
@@ -23,12 +28,8 @@ function init(){
     if(day1 >= 27){
         alert('Remember to do the GTE of this month!');
     }
-    fillTheList();
-    fillTheDecider();
-    hideTools();
 }
 
-var divs = ['tab1', 'tab2', 'calendar', 'tools'];
 
 function showhide(arg){
     var wb = document.getElementById('workbench');
@@ -262,6 +263,11 @@ function NonValid2Valid(){
 }
 
 function hideTools(){
+
+    document.getElementById('workbench').style.display = 'none';
+    document.getElementById('tools').style.display = 'none';
+    document.getElementById('calendar').style.display = 'none';
+
     var alpacs = document.getElementById('sel');
     var decider = document.getElementById('optFields');
     var coin = document.getElementById('dacoin');
@@ -335,8 +341,4 @@ async function paste(text){
     var field = document.getElementById(text);
     var cb = await navigator.clipboard.readText();
     field.value = cb;
-    // var paste = document.getElementById(text);
-    // paste.addEventListener('click', () =>{
-    //     navigator.clipboard.readText().then((clipText) => (paste.innerText = clipText));
-    // });
 }
